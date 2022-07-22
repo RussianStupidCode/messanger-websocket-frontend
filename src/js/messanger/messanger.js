@@ -23,6 +23,7 @@ export default class Messanger {
     this.chat.bindToDOM(this.el);
 
     this.setListeners();
+    this.loginForm.hide();
   }
 
   get isLogin() {
@@ -30,6 +31,10 @@ export default class Messanger {
   }
 
   setListeners() {
+    this.socket.addEventListener('open', () => {
+      this.loginForm.show();
+    });
+
     this.loginForm.setSendCallback((userName) => {
       if (this.isLogin) {
         return;

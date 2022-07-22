@@ -10,9 +10,12 @@ export default class Socket {
 
   addEventListener(eventName, callback) {
     this.socket.addEventListener(eventName, (event) => {
-      const object = JSON.parse(event.data);
-
-      callback(object);
+      try {
+        const object = JSON.parse(event.data);
+        callback(object);
+      } catch (error) {
+        callback({ error: String(error) });
+      }
     });
   }
 
