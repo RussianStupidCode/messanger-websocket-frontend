@@ -16,7 +16,7 @@ export default class LoginForm {
     this.error.classList.add('badge', 'bg-danger', 'd-none', 'mb-2', 'p-2');
 
     this.button = document.createElement('button');
-    this.button.type = 'button';
+    this.button.type = 'submit';
     this.button.classList.add('btn', 'btn-primary');
     this.button.textContent = 'Продолжить';
 
@@ -29,7 +29,7 @@ export default class LoginForm {
   }
 
   setListeners() {
-    this.button.addEventListener('click', (event) => {
+    this.el.addEventListener('submit', (event) => {
       event.preventDefault();
       this.sendCallback(this.input.value.trim());
     });

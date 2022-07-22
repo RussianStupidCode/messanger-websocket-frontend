@@ -11,15 +11,21 @@ export default class UserMessage {
     titleElement.textContent = `${name}, ${dateFormat(date)}`;
 
     const contentElement = document.createElement('pre');
-    contentElement.classList.add('user-message-content');
+    contentElement.classList.add(
+      'user-message-content',
+      'border',
+      'border-2',
+      'p-2',
+      'rounded'
+    );
     contentElement.textContent = content;
 
     if (isCurrentUser) {
-      titleElement.classList.add('bg-success', 'alignt-self-end');
-      contentElement.classList.add('alignt-self-end');
+      titleElement.classList.add('bg-success', 'align-self-end');
+      contentElement.classList.add('align-self-end', 'border-success');
     } else {
       titleElement.classList.add('bg-primary', 'align-self-start');
-      contentElement.classList.add('alignt-self-start');
+      contentElement.classList.add('alignt-self-start', 'border-primary');
     }
 
     this.el.insertAdjacentElement('beforeEnd', titleElement);

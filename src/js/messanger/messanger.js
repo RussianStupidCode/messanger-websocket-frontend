@@ -40,6 +40,8 @@ export default class Messanger {
         return;
       }
 
+      console.log(userName);
+
       const message = new Message({
         type: MESSAGE_TYPES.login,
         content: userName,
