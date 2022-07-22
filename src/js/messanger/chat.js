@@ -72,6 +72,7 @@ export default class Chat {
       );
 
       userMessage.bindToDOM(this.chatContent);
+      this.chatContent.scrollTop += this.chatContent.scrollHeight;
     });
   }
 
