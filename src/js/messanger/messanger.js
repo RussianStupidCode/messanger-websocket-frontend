@@ -40,15 +40,17 @@ export default class Messanger {
         return;
       }
 
-      console.log(userName);
-
       const message = new Message({
         type: MESSAGE_TYPES.login,
         content: userName,
         date: moment().unix,
       });
 
-      this.socket.send(message);
+      try {
+        this.socket.send(message);
+      } catch (err) {
+        this.loginForm.showError(String(err));
+      }
     });
 
     this.socket.addEventListener('message', (data) => {
