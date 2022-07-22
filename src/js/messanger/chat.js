@@ -65,7 +65,7 @@ export default class Chat {
       const message = Message.fromObject(object);
 
       const userMessage = new UserMessage(
-        message.fields.senderName,
+        object.isYouOwner ? 'You' : message.fields.senderName,
         message.content,
         message.date,
         message.fields.isYouOwner
